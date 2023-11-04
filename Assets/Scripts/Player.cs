@@ -7,34 +7,28 @@ public class Player : MonoBehaviour {
 
     [SerializeField] private float rotationSpeed = 20f;
 
+    [SerializeField] private GameInput gameInput;
+
+    private bool isWalking;
+
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         Debug.Log("Clase creada");
     }
 
     // Update is called once per frame
-    void Update() {
-        Vector3 moveDir = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.W)) {
-            moveDir.z += 1;
-        }
+    private void Update() {
+        Vector3 moveDir = gameInput.GetMoveVectorNormalized();
+        
+        isWalking = moveDir != Vector3.zero;
 
-        if (Input.GetKey(KeyCode.S)) {
-            moveDir.z -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-            moveDir.x -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.D)) {
-            moveDir.x += 1;
-        }
-
-        moveDir = moveDir.normalized;
         transform.position += moveDir * (moveSpeed * Time.deltaTime);
-        Debug.Log(moveDir);
 
         transform.forward = Vector3.Slerp(transform.forward, moveDir, rotationSpeed * Time.deltaTime);
     }
+
+    public bool IsWalking() {
+        return isWalking;
+    }
+    
 }
