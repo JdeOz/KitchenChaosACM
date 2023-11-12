@@ -722,6 +722,9 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 20
   gameInput: {fileID: 317785284}
+  counterLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1749170882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -734,6 +737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClearCounter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467125581711797719, guid: 2bd8162872ed80644b67076fb7d7f65e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7440666586396155511, guid: 2bd8162872ed80644b67076fb7d7f65e,
         type: 3}
@@ -866,7 +874,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 359464279}
-  - {fileID: 1628529970}
   - {fileID: 317785285}
+  - {fileID: 1628529970}
   - {fileID: 1808903454275280372}
   - {fileID: 1749170882}
